@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SeleccionPersonaje.unity
     guid: 83ef14c2267dead458785d6429023584
+  - enabled: 1
+    path: Assets/Scenes/Mapa.unity
+    guid: 49055761fbf053945a5f6c62544a8ebc
+  - enabled: 1
+    path: Assets/Scenes/Mundo_Tolima.unity
+    guid: 040e37b0f5d6e034087fc85e8c2f71f3
   m_configObjects: {}

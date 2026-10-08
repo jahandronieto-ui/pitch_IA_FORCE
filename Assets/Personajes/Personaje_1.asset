@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d321b5162377b320c0ac13addfecc969, type: 3}
+  m_Name: Personaje_1
+  m_EditorClassIdentifier: 
+  id: 1
+  nombre: Personaje 1
+  retrato: {fileID: 21300000, guid: a218e15d93a1bd34fa24a7f0c98f127e, type: 3}
+  prefab: {fileID: 100000, guid: 7f73c224572bfc23bd925cd565270612, type: 3}
+  reposoAbajo: {fileID: -855640322, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  reposoArriba: {fileID: -531451742, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  reposoIzquierda: {fileID: -1261076094, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  reposoDerecha: {fileID: 791016235, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  caminarAbajo:
+  - {fileID: -964983548, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: -1474130242, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: 1425645453, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: 1924583912, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  caminarArriba:
+  - {fileID: -2030040026, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: 1999293686, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: 1746144138, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: -1141870773, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  caminarIzquierda:
+  - {fileID: 103310812, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: -974797276, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: 501856208, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: -1882308911, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  caminarDerecha:
+  - {fileID: -69177398, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: -123055771, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: 119437097, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  - {fileID: 1211553449, guid: 865250f5c63090c4e9dc31eeb4152af7, type: 3}
+  cuadrosPorSegundo: 8
+  alturaEnMundo: 2
+  reflejarLateralFaltante: 1
