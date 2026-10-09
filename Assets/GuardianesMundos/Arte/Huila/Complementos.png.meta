@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: d953bc78e3ecc96da65387dee7b62315
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Guia_Huila
+  - first:
+      213: 21300002
+    second: Habitante_Huila
+  - first:
+      213: 21300004
+    second: Arbol_Huila
+  - first:
+      213: 21300006
+    second: Casa_Huila
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+  isReadable: 1
+  textureType: 8
+  textureShape: 1
+  maxTextureSize: 2048
+  textureFormat: -1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteMode: 2
+  spritePixelsToUnits: 100
+  spriteMeshType: 0
+  spriteExtrude: 1
+  spritePivot:
+    x: 0.5
+    y: 0.5
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Guia_Huila
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 647
+        width: 247
+        height: 564
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0cf9b83199d85010af44571f30e8d6
+      internalID: 21300000
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Habitante_Huila
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 647
+        width: 254
+        height: 571
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91be46435ce9f6f86881694cf43a63c
+      internalID: 21300002
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arbol_Huila
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 47
+        width: 543
+        height: 559
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7e82325a6d3c3c1f33ed0593567b31
+      internalID: 21300004
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Casa_Huila
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 95
+        width: 628
+        height: 469
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcae4b5b008fc00e90e305ca8e8a8a94
+      internalID: 21300006
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f6dd9d5d69a0a9284872c2ae68a29d4c
+    internalID: 0
+    vertices: []
+    indices: ''
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Guia_Huila: 21300000
+      Habitante_Huila: 21300002
+      Arbol_Huila: 21300004
+      Casa_Huila: 21300006
+  userData: ''
+  assetBundleName: ''
+  assetBundleVariant: ''
+  npotScale: 0

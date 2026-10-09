@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 25cb17820859cbf945cd4c1b6ac8998d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Guia_Caqueta
+  - first:
+      213: 21300002
+    second: Habitante_Caqueta
+  - first:
+      213: 21300004
+    second: Arbol_Caqueta
+  - first:
+      213: 21300006
+    second: Casa_Caqueta
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+  isReadable: 1
+  textureType: 8
+  textureShape: 1
+  maxTextureSize: 2048
+  textureFormat: -1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteMode: 2
+  spritePixelsToUnits: 100
+  spriteMeshType: 0
+  spriteExtrude: 1
+  spritePivot:
+    x: 0.5
+    y: 0.5
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Guia_Caqueta
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 669
+        width: 274
+        height: 526
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecbbb4a4ef5150554df4ec9163c29e64
+      internalID: 21300000
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Habitante_Caqueta
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 669
+        width: 266
+        height: 529
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c21d0d0fe38781e8c07b75fa7404182
+      internalID: 21300002
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arbol_Caqueta
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 32
+        width: 527
+        height: 593
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635f658ae38e82ec4de5a71a6587c86f
+      internalID: 21300004
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Casa_Caqueta
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 65
+        width: 574
+        height: 479
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1e5b8deaa9e098867c842692c803974
+      internalID: 21300006
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8ecd2917f0bead84106bcdcb94de93ab
+    internalID: 0
+    vertices: []
+    indices: ''
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Guia_Caqueta: 21300000
+      Habitante_Caqueta: 21300002
+      Arbol_Caqueta: 21300004
+      Casa_Caqueta: 21300006
+  userData: ''
+  assetBundleName: ''
+  assetBundleVariant: ''
+  npotScale: 0

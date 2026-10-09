@@ -1,4 +1,7 @@
 using UnityEngine;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 namespace GuardianesTolima
 {
@@ -50,14 +53,21 @@ namespace GuardianesTolima
         {
             if (mundo == null) return;
             Vector2 teclas = Vector2.zero;
+            bool interactuar = false;
             if (leerTeclado)
             {
-                try { teclas = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); }
-                catch (System.InvalidOperationException)
+#if ENABLE_INPUT_SYSTEM
+                var k = Keyboard.current;
+                if (k != null)
                 {
-                    leerTeclado = false;
-                    Debug.LogWarning("Para WASD usa Active Input Handling = Both u Old. Los controles de pantalla siguen disponibles.", this);
+                    teclas = new Vector2((k.dKey.isPressed || k.rightArrowKey.isPressed ? 1 : 0) - (k.aKey.isPressed || k.leftArrowKey.isPressed ? 1 : 0),
+                        (k.wKey.isPressed || k.upArrowKey.isPressed ? 1 : 0) - (k.sKey.isPressed || k.downArrowKey.isPressed ? 1 : 0));
+                    interactuar = k.eKey.wasPressedThisFrame;
                 }
+#elif ENABLE_LEGACY_INPUT_MANAGER
+                teclas = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                interactuar = Input.GetKeyDown(KeyCode.E);
+#endif
             }
             entrada = mundo.Bloqueado ? Vector2.zero : Vector2.ClampMagnitude(teclas + tactil, 1);
             if (entrada.sqrMagnitude > 0.001f) direccion = entrada.normalized;
@@ -67,7 +77,7 @@ namespace GuardianesTolima
                 animador.SetFloat("Vertical", direccion.y);
                 animador.SetFloat("Velocidad", entrada.magnitude);
             }
-            if (leerTeclado && !mundo.Bloqueado && Input.GetKeyDown(KeyCode.E)) mundo.Interactuar();
+            if (interactuar && !mundo.Bloqueado) mundo.Interactuar();
         }
 
         void FixedUpdate()

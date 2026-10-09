@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Mundo_Tolima.unity
     guid: 040e37b0f5d6e034087fc85e8c2f71f3
+  - enabled: 1
+    path: Assets/Scenes/Mundo_Caqueta.unity
+    guid: 28179f606a7a48540babb7979fd0dbe7
+  - enabled: 1
+    path: Assets/Scenes/Mundo_Putumayo.unity
+    guid: 9b94af0711dcb7642aa28763e365cc2e
+  - enabled: 1
+    path: Assets/Scenes/Mundo_Huila.unity
+    guid: 036f1730fda36dd4181635c4617ebc6b
+  - enabled: 1
+    path: Assets/Scenes/Final_Juego.unity
+    guid: e8553582374aa804cb20a55bf977e218
   m_configObjects: {}

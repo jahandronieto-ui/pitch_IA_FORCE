@@ -11,19 +11,35 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d321b5162377b320c0ac13addfecc969, type: 3}
   m_Name: Personaje_2
-  m_EditorClassIdentifier: ''
+  m_EditorClassIdentifier: 
   id: 2
-  nombre: Personaje 2
-  retrato: {fileID: 21300000, guid: 5b28a13ffa89a6546a3bb92acbe48525, type: 3}
+  nombre: Mateo
+  retrato: {fileID: 21300000, guid: 88b6f2a5b0ba3c94aabc85efef5119bb, type: 3}
   prefab: {fileID: 100000, guid: a7e8a013b320cec07361c1d55ad224a9, type: 3}
-  reposoAbajo: {fileID: 0}
-  reposoArriba: {fileID: 0}
-  reposoIzquierda: {fileID: 0}
-  reposoDerecha: {fileID: 0}
-  caminarAbajo: []
-  caminarArriba: []
-  caminarIzquierda: []
-  caminarDerecha: []
+  reposoAbajo: {fileID: -1474985859, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  reposoArriba: {fileID: -216602300, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  reposoIzquierda: {fileID: -1563844818, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  reposoDerecha: {fileID: -811368411, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  caminarAbajo:
+  - {fileID: 1421904816, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: 1509546902, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -983863513, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: 1762031197, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  caminarArriba:
+  - {fileID: 1699879241, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -1563100476, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -947319525, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: 1348744157, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  caminarIzquierda:
+  - {fileID: 1287490393, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -82786259, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -369704962, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -244327149, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  caminarDerecha:
+  - {fileID: -125334019, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -1271260202, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -935160213, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
+  - {fileID: -1615204016, guid: 4a7062a2562be7d4780d6567d10b8eeb, type: 3}
   cuadrosPorSegundo: 8
   alturaEnMundo: 2
   reflejarLateralFaltante: 1

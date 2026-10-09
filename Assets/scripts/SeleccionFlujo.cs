@@ -26,6 +26,10 @@ namespace GuardianesFlujo
                 nombreRuntime = FlujoUI.Texto(canvas.transform, "", Vector2.zero, new Vector2(650, 60), 28);
                 var r = nombreRuntime.rectTransform; r.anchorMin = r.anchorMax = new Vector2(0.5f, 1); r.anchoredPosition = new Vector2(0, -95);
             }
+            if (botonesPersonaje != null)
+                foreach (var boton in botonesPersonaje)
+                    if (boton != null && boton.GetComponent<TarjetaPersonajeFlujo>() == null)
+                        boton.gameObject.AddComponent<TarjetaPersonajeFlujo>();
             int id = PlayerPrefs.GetInt("ID_Seleccionada", idPorDefecto);
             if (catalogo.Buscar(id) == null) id = idPorDefecto;
             AplicarSeleccion(id);
@@ -39,6 +43,14 @@ namespace GuardianesFlujo
         {
             var personaje = catalogo.Buscar(id);
             if (personaje == null || personaje.prefab == null) return;
+            if (botonesPersonaje != null)
+                for (int i = 0; i < botonesPersonaje.Length; i++)
+                {
+                    var boton = botonesPersonaje[i];
+                    if (boton == null) continue;
+                    var tarjeta = boton.GetComponent<TarjetaPersonajeFlujo>();
+                    if (tarjeta != null) tarjeta.Seleccionada(i < idsBotones.Length && idsBotones[i] == id);
+                }
             seleccionado = id; PlayerPrefs.SetInt("ID_Seleccionada", id); PlayerPrefs.Save();
             for (int i = 0; i < marcasSeleccion.Length; i++)
             {

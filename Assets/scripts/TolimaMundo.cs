@@ -9,6 +9,11 @@ namespace GuardianesTolima
 {
     public class TolimaMundo : MonoBehaviour
     {
+        [Header("Territorio y progreso independiente")]
+        public string territorio = "Tolima", nombreTerritorio = "Tolima", siguienteTerritorio = "Huila";
+        [TextArea] public string textoBienvenida = "Recorre los senderos y conversa con la comunidad. Aprende a prevenir quemas agrícolas, gestionar residuos y evitar el riesgo de colillas.";
+        public string temasActividades = "quemas agrícolas, residuos rurales y colillas";
+        public void ConfigurarActividades(Pregunta[][] nuevas) { actividades = nuevas; }
         [Serializable] public class Personaje { public int id; public GameObject prefab; }
         [Serializable] public class Sitio
         {
@@ -30,9 +35,21 @@ namespace GuardianesTolima
         public Sitio[] sitios = new Sitio[0];
         public Ruta[] rutas = new Ruta[0];
         public bool restringirACaminos = true;
+        [Tooltip("Mascara de suelo transitable del fondo ilustrado. Si no se asigna, usa las rutas originales.")]
+        public TextAsset mascaraTransitable;
+        [Serializable] class Mascara { public int ancho, alto; public string celdas; }
+        Mascara navegacion;
         public float radioInteraccion = 2.3f;
         public float velocidadJugador = 5f;
         public float tamanoCamara = 6.2f;
+        [Header("Contenedor de indicaciones: movimiento y hablar")]
+        public Vector2 tamanoContenedorAyuda = new Vector2(1050, 100);
+        public Vector2 posicionContenedorAyuda = new Vector2(0, 95);
+        public Color colorContenedorAyuda = new Color(0.02f, 0.15f, 0.20f, 0.92f);
+        public Color colorTextoAyuda = Color.white;
+        [Min(12)] public int tamanoTextoAyuda = 25;
+        [Tooltip("Opcional: imagen del panel. Para bordes escalables usa un sprite con Border configurado.")]
+        public Sprite imagenContenedorAyuda;
         public string escenaMapa = "Mapa";
         [Header("Prueba directa sin pasar por seleccion")]
         public bool usarPersonajePorDefecto = true;
@@ -50,18 +67,18 @@ namespace GuardianesTolima
         Image cortina;
         Font fuente;
         int sitioActivo = -1, preguntaActual;
-        bool panelAbierto, viajando;
+        bool panelAbierto, viajando, verFinalPendiente;
         readonly string[] ids = { "bienvenida", "actividad1", "actividad2", "actividad3", "compromiso" };
-        string Clave(string id) { return "GT.Tolima.Mision." + id; }
+        string Clave(string id) { return "GT." + territorio + ".Mision." + id; }
         bool Completa(string id) { return PlayerPrefs.GetInt(Clave(id), 0) == 1; }
-        class Pregunta
+        [Serializable] public class Pregunta
         {
             public string texto;
             public string[] respuestas;
             public int correcta;
             public Pregunta(string t, int c, params string[] r) { texto = t; correcta = c; respuestas = r; }
         }
-        readonly Pregunta[][] actividades = {
+        Pregunta[][] actividades = {
             new [] {
                 new Pregunta("¿Qué alternativa ayuda a prevenir incendios al gestionar restos de cultivos?", 1, "Quemarlos cerca del bosque", "Gestionarlos sin quemarlos", "Dejarlos ardiendo sin vigilancia"),
                 new Pregunta("¿Qué condición favorece que un fuego se propague?", 0, "Vegetación seca y viento", "Ausencia de materiales combustibles", "Suelo sin vegetación ni residuos"),
@@ -81,6 +98,12 @@ namespace GuardianesTolima
 
         void Start()
         {
+            if (mascaraTransitable != null)
+            {
+                navegacion = JsonUtility.FromJson<Mascara>(mascaraTransitable.text);
+                if (navegacion == null || navegacion.ancho <= 0 || navegacion.alto <= 0 || navegacion.celdas == null || navegacion.celdas.Length != navegacion.ancho * navegacion.alto)
+                { Debug.LogError("Mascara de navegacion invalida; se usaran las rutas.", this); navegacion = null; }
+            }
             ConstruirInterfaz();
             if (fondo == null || fondo.sprite == null || camara == null || puntoInicio == null)
             {
@@ -151,9 +174,22 @@ namespace GuardianesTolima
             if (anterior != null) { anterior.gameObject.SetActive(false); Destroy(anterior.gameObject); }
             ui = Rect("InterfazTolimaGenerada", canvas.transform, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             Image cabecera = Imagen("Cabecera", ui, new Vector2(0, 1), new Vector2(0, 1), new Vector2(340, -90), new Vector2(640, 140), new Color(0.02f, 0.15f, 0.22f, 0.93f));
-            Texto("Titulo", cabecera.transform, "TOLIMA · Guardianes del territorio", new Vector2(0, 35), new Vector2(610, 55), 28);
+            Texto("Titulo", cabecera.transform, nombreTerritorio.ToUpperInvariant() + " · Guardianes del territorio", new Vector2(0, 35), new Vector2(610, 55), 28);
             estado = Texto("Progreso", cabecera.transform, "Misiones: 0/5    Estrellas: 0/12", new Vector2(0, -20), new Vector2(610, 50), 25);
-            sugerencia = Texto("AyudaInteraccion", ui, "Camina con WASD o las flechas. Pulsa E o Hablar.", new Vector2(0, -445), new Vector2(1000, 60), 25);
+            Vector2 tamanoAyuda = new Vector2(Mathf.Max(100, tamanoContenedorAyuda.x), Mathf.Max(50, tamanoContenedorAyuda.y));
+            Image contenedorAyuda = Imagen("ContenedorAyuda", ui,
+                new Vector2(0.5f, 0), new Vector2(0.5f, 0),
+                posicionContenedorAyuda, tamanoAyuda, colorContenedorAyuda);
+            contenedorAyuda.raycastTarget = false;
+            if (imagenContenedorAyuda != null)
+            {
+                contenedorAyuda.sprite = imagenContenedorAyuda;
+                contenedorAyuda.type = imagenContenedorAyuda.border.sqrMagnitude > 0 ? Image.Type.Sliced : Image.Type.Simple;
+            }
+            sugerencia = Texto("AyudaInteraccion", contenedorAyuda.transform,
+                "Camina con WASD o las flechas. Pulsa E o Hablar.", Vector2.zero,
+                tamanoAyuda - new Vector2(60, 20), Mathf.Max(12, tamanoTextoAyuda));
+            sugerencia.color = colorTextoAyuda;
             Boton("VolverMapa", ui, "Volver al mapa", new Vector2(790, 465), new Vector2(270, 65), VolverMapa);
             Boton("Hablar", ui, "Hablar / Interactuar", new Vector2(760, -420), new Vector2(320, 85), Interactuar);
             CrearFlecha("Arriba", "▲", new Vector2(-770, -330), Vector2.up);
@@ -231,13 +267,13 @@ namespace GuardianesTolima
             if (sitio.id != "bienvenida" && !Completa("bienvenida"))
             { MostrarMensaje("Habla primero con la guía", "La guía está en la plaza central. Completa su bienvenida antes de empezar las actividades.", false); return; }
             if (sitio.id == "compromiso" && (!Completa("actividad1") || !Completa("actividad2") || !Completa("actividad3")))
-            { MostrarMensaje("Aún faltan actividades", "Visita las zonas de quemas agrícolas, residuos rurales y colillas. Después regresa al tablón.", false); return; }
+            { MostrarMensaje("Aún faltan actividades", "Completa las actividades de " + temasActividades + ". Después regresa al tablón.", false); return; }
             if (Completa(sitio.id))
             { MostrarMensaje(sitio.titulo, "Esta misión ya está completada. Continúa por el sendero o vuelve al mapa.", false); return; }
             if (sitio.id == "bienvenida")
-            { MostrarMensaje("Guía de Tolima", "Bienvenido. Recorre los senderos y conversa con la comunidad. Tus retos son prevenir quemas agrícolas, gestionar residuos y evitar el riesgo de colillas. Al terminar, vuelve al tablón para cerrar tu compromiso.", true); return; }
+            { MostrarMensaje("Guía de " + nombreTerritorio, textoBienvenida + " Al terminar, vuelve al tablón para cerrar tu compromiso.", true); return; }
             if (sitio.id == "compromiso")
-            { MostrarMensaje("Compromiso con el territorio", "Has completado las tres actividades. Comparte lo aprendido: evitar quemas, gestionar residuos y prevenir prácticas de riesgo. Confirma tu compromiso para completar Tolima y desbloquear Huila.", true); return; }
+            { MostrarMensaje("Compromiso con el territorio", "Has completado las tres actividades de " + nombreTerritorio + ". Confirma tu compromiso de cuidar el territorio." + (string.IsNullOrEmpty(siguienteTerritorio) ? " ¡Completaste el recorrido por los cuatro territorios!" : " Se desbloqueará " + siguienteTerritorio + "."), true); return; }
             preguntaActual = 0; panelAbierto = true; Jugador.Detener(); modal.SetActive(true); MostrarPregunta();
         }
 
@@ -264,8 +300,20 @@ namespace GuardianesTolima
         }
         void ConfirmarDialogo()
         {
+            if (verFinalPendiente) { GuardianesFlujo.FlujoTransicion.Cargar("Final_Juego"); return; }
             if (sitioActivo < 0) return;
+            bool compromiso = sitios[sitioActivo].id == "compromiso";
             Completar(sitios[sitioActivo].id); CerrarPanel();
+            if (compromiso && GuardianesFlujo.ProgresoJuegoFlujo.JuegoCompleto())
+            {
+                MostrarMensaje("¡Recorrido completado!", "Completaste los cuatro territorios. Mira tus estrellas y resultados finales.", true);
+                verFinalPendiente = true;
+                accionPrincipal.GetComponentInChildren<Text>().text = "Ver final del juego";
+                return;
+            }
+            if (compromiso)
+                MostrarMensaje(string.IsNullOrEmpty(siguienteTerritorio) ? "Compromiso final completado" : nombreTerritorio + " completado",
+                    string.IsNullOrEmpty(siguienteTerritorio) ? "Terminaste las cinco misiones de " + nombreTerritorio + ". Vuelve al mapa para revisar tu recorrido." : "Completaste las cinco misiones y desbloqueaste " + siguienteTerritorio + ". Vuelve al mapa para continuar.", false);
         }
         int ActividadActual()
         {
@@ -296,7 +344,13 @@ namespace GuardianesTolima
             if (Completa(id)) return;
             PlayerPrefs.SetInt(Clave(id), 1);
             bool todas = true; foreach (string m in ids) todas &= Completa(m);
-            if (todas) { PlayerPrefs.SetInt("GT.Tolima.Completo", 1); PlayerPrefs.SetInt("GT.Huila.Desbloqueado", 1); }
+            if (todas)
+            {
+                PlayerPrefs.SetInt("GT." + territorio + ".Completo", 1);
+                if (!string.IsNullOrEmpty(siguienteTerritorio)) PlayerPrefs.SetInt("GT." + siguienteTerritorio + ".Desbloqueado", 1);
+                else if (PlayerPrefs.GetInt("GT.Tolima.Completo", 0) == 1 && PlayerPrefs.GetInt("GT.Huila.Completo", 0) == 1 && PlayerPrefs.GetInt("GT.Caqueta.Completo", 0) == 1)
+                    PlayerPrefs.SetInt("GT.Juego.Completo", 1);
+            }
             PlayerPrefs.Save(); ActualizarProgreso();
         }
         void ActualizarProgreso()
@@ -309,7 +363,7 @@ namespace GuardianesTolima
         }
         void CerrarPanel()
         {
-            panelAbierto = false; modal.SetActive(false); sitioActivo = -1;
+            verFinalPendiente = false; panelAbierto = false; modal.SetActive(false); sitioActivo = -1;
             if (Jugador != null) Jugador.Detener();
         }
 
@@ -319,6 +373,12 @@ namespace GuardianesTolima
             Bounds b = fondo.bounds;
             if (posicion.x < b.min.x + 0.2f || posicion.x > b.max.x - 0.2f || posicion.y < b.min.y + 0.2f || posicion.y > b.max.y - 0.2f) return false;
             if (!restringirACaminos) return true;
+            if (navegacion != null)
+            {
+                int x = Mathf.Clamp(Mathf.FloorToInt((posicion.x - b.min.x) / b.size.x * navegacion.ancho), 0, navegacion.ancho - 1);
+                int y = Mathf.Clamp(Mathf.FloorToInt((posicion.y - b.min.y) / b.size.y * navegacion.alto), 0, navegacion.alto - 1);
+                return navegacion.celdas[y * navegacion.ancho + x] == '1';
+            }
             foreach (Ruta ruta in rutas)
             {
                 if (ruta == null || ruta.puntos == null) continue;
@@ -354,7 +414,7 @@ namespace GuardianesTolima
             foreach (Sitio s in sitios)
             {
                 if (s == null || s.punto == null || s.visual == null) continue;
-                s.visual.sortingOrder = 1000 - Mathf.RoundToInt(s.punto.position.y * 100);
+                s.visual.sortingOrder = 1000 - Mathf.RoundToInt((s.visual.transform.parent != null ? s.visual.transform.parent.position.y : s.visual.transform.position.y) * 100);
                 if (s.marcador != null)
                     foreach (SpriteRenderer r in s.marcador.GetComponentsInChildren<SpriteRenderer>()) r.sortingOrder = 5000;
             }

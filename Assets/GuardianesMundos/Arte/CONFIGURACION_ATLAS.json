@@ -1,0 +1,168 @@
+{
+  "atlases": [
+    {
+      "ruta": "Assets/GuardianesMundos/Arte/Huila/Complementos.png",
+      "sprites": [
+        {
+          "nombre": "Guia_Huila",
+          "rect": {
+            "x": 188,
+            "y": 647,
+            "width": 247,
+            "height": 564
+          }
+        },
+        {
+          "nombre": "Habitante_Huila",
+          "rect": {
+            "x": 807,
+            "y": 647,
+            "width": 254,
+            "height": 571
+          }
+        },
+        {
+          "nombre": "Arbol_Huila",
+          "rect": {
+            "x": 37,
+            "y": 47,
+            "width": 543,
+            "height": 559
+          }
+        },
+        {
+          "nombre": "Casa_Huila",
+          "rect": {
+            "x": 616,
+            "y": 95,
+            "width": 628,
+            "height": 469
+          }
+        }
+      ]
+    },
+    {
+      "ruta": "Assets/GuardianesMundos/Arte/Caqueta/Complementos.png",
+      "sprites": [
+        {
+          "nombre": "Guia_Caqueta",
+          "rect": {
+            "x": 211,
+            "y": 669,
+            "width": 274,
+            "height": 526
+          }
+        },
+        {
+          "nombre": "Habitante_Caqueta",
+          "rect": {
+            "x": 780,
+            "y": 669,
+            "width": 266,
+            "height": 529
+          }
+        },
+        {
+          "nombre": "Arbol_Caqueta",
+          "rect": {
+            "x": 62,
+            "y": 32,
+            "width": 527,
+            "height": 593
+          }
+        },
+        {
+          "nombre": "Casa_Caqueta",
+          "rect": {
+            "x": 649,
+            "y": 65,
+            "width": 574,
+            "height": 479
+          }
+        }
+      ]
+    },
+    {
+      "ruta": "Assets/GuardianesMundos/Arte/Putumayo/Complementos.png",
+      "sprites": [
+        {
+          "nombre": "Guia_Putumayo",
+          "rect": {
+            "x": 213,
+            "y": 667,
+            "width": 214,
+            "height": 529
+          }
+        },
+        {
+          "nombre": "Habitante_Putumayo",
+          "rect": {
+            "x": 818,
+            "y": 668,
+            "width": 229,
+            "height": 541
+          }
+        },
+        {
+          "nombre": "Arbol_Putumayo",
+          "rect": {
+            "x": 23,
+            "y": 25,
+            "width": 595,
+            "height": 591
+          }
+        },
+        {
+          "nombre": "Casa_Putumayo",
+          "rect": {
+            "x": 626,
+            "y": 93,
+            "width": 614,
+            "height": 451
+          }
+        }
+      ]
+    },
+    {
+      "ruta": "Assets/GuardianesMundos/Arte/Compartidos/Complementos.png",
+      "sprites": [
+        {
+          "nombre": "Puente_Compartidos",
+          "rect": {
+            "x": 31,
+            "y": 696,
+            "width": 747,
+            "height": 326
+          }
+        },
+        {
+          "nombre": "Tablon_Compartidos",
+          "rect": {
+            "x": 778,
+            "y": 660,
+            "width": 473,
+            "height": 503
+          }
+        },
+        {
+          "nombre": "Residuos_Compartidos",
+          "rect": {
+            "x": 39,
+            "y": 152,
+            "width": 629,
+            "height": 310
+          }
+        },
+        {
+          "nombre": "Cultivos_Compartidos",
+          "rect": {
+            "x": 713,
+            "y": 93,
+            "width": 517,
+            "height": 456
+          }
+        }
+      ]
+    }
+  ]
+}

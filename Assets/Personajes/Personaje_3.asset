@@ -11,19 +11,35 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d321b5162377b320c0ac13addfecc969, type: 3}
   m_Name: Personaje_3
-  m_EditorClassIdentifier: ''
+  m_EditorClassIdentifier: 
   id: 3
-  nombre: Personaje 3
+  nombre: Nicolás
   retrato: {fileID: 21300000, guid: 0ac227b8429baff40a0062c502eb5f9a, type: 3}
   prefab: {fileID: 100000, guid: 96ce654935be0f0608eaf20a0572afba, type: 3}
-  reposoAbajo: {fileID: 0}
-  reposoArriba: {fileID: 0}
-  reposoIzquierda: {fileID: 0}
-  reposoDerecha: {fileID: 0}
-  caminarAbajo: []
-  caminarArriba: []
-  caminarIzquierda: []
-  caminarDerecha: []
+  reposoAbajo: {fileID: -1451058878, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  reposoArriba: {fileID: 341657643, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  reposoIzquierda: {fileID: 1726076382, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  reposoDerecha: {fileID: 922457026, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  caminarAbajo:
+  - {fileID: -259324684, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: 560671693, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: -828902716, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: -1306191748, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  caminarArriba:
+  - {fileID: -899277308, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: -92461139, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: -225958820, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: 1859230658, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  caminarIzquierda:
+  - {fileID: 1119810097, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: 1721905718, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: -1418178718, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: -1374442336, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  caminarDerecha:
+  - {fileID: -1386346228, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: 1708271051, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: -374599428, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
+  - {fileID: 620365818, guid: 71a4a431a20749942af18fd25d0a82de, type: 3}
   cuadrosPorSegundo: 8
   alturaEnMundo: 2
   reflejarLateralFaltante: 1

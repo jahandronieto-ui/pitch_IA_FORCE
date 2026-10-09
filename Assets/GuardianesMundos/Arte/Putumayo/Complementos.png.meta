@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: e58a5bb768eb90cf3253dd024d9f4e32
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Guia_Putumayo
+  - first:
+      213: 21300002
+    second: Habitante_Putumayo
+  - first:
+      213: 21300004
+    second: Arbol_Putumayo
+  - first:
+      213: 21300006
+    second: Casa_Putumayo
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+  isReadable: 1
+  textureType: 8
+  textureShape: 1
+  maxTextureSize: 2048
+  textureFormat: -1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteMode: 2
+  spritePixelsToUnits: 100
+  spriteMeshType: 0
+  spriteExtrude: 1
+  spritePivot:
+    x: 0.5
+    y: 0.5
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Guia_Putumayo
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 667
+        width: 214
+        height: 529
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90ebe7631584f46afb8b2b0bbd16324
+      internalID: 21300000
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Habitante_Putumayo
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 668
+        width: 229
+        height: 541
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4366a38c361294c3cbdc86d0b2f3fc
+      internalID: 21300002
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arbol_Putumayo
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 25
+        width: 595
+        height: 591
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1931bd2e3e488c13d139abf94f96671b
+      internalID: 21300004
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Casa_Putumayo
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 93
+        width: 614
+        height: 451
+      alignment: 0
+      pivot:
+        x: 0.5
+        y: 0.5
+      border:
+        x: 0
+        y: 0
+        z: 0
+        w: 0
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7567903a4bb468931bf364e397450cb2
+      internalID: 21300006
+      vertices: []
+      indices: ''
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6165cd26b95f5713fd61f77bd323fc0a
+    internalID: 0
+    vertices: []
+    indices: ''
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Guia_Putumayo: 21300000
+      Habitante_Putumayo: 21300002
+      Arbol_Putumayo: 21300004
+      Casa_Putumayo: 21300006
+  userData: ''
+  assetBundleName: ''
+  assetBundleVariant: ''
+  npotScale: 0
