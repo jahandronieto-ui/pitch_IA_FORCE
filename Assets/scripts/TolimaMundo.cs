@@ -274,6 +274,8 @@ namespace GuardianesTolima
             { MostrarMensaje("Guía de " + nombreTerritorio, textoBienvenida + " Al terminar, vuelve al tablón para cerrar tu compromiso.", true); return; }
             if (sitio.id == "compromiso")
             { MostrarMensaje("Compromiso con el territorio", "Has completado las tres actividades de " + nombreTerritorio + ". Confirma tu compromiso de cuidar el territorio." + (string.IsNullOrEmpty(siguienteTerritorio) ? " ¡Completaste el recorrido por los cuatro territorios!" : " Se desbloqueará " + siguienteTerritorio + "."), true); return; }
+            GuardianesFlujo.SonidosGuardianes.ReproducirInteraccion();
+            if (GuardianesFlujo.MusicaGuardianes.Instancia != null) GuardianesFlujo.MusicaGuardianes.Instancia.IniciarActividad();
             preguntaActual = 0; panelAbierto = true; Jugador.Detener(); modal.SetActive(true); MostrarPregunta();
         }
 
@@ -292,6 +294,8 @@ namespace GuardianesTolima
 
         void MostrarMensaje(string titulo, string texto, bool confirmar)
         {
+            GuardianesFlujo.SonidosGuardianes.ReproducirInteraccion();
+            if (GuardianesFlujo.MusicaGuardianes.Instancia != null) GuardianesFlujo.MusicaGuardianes.Instancia.TerminarActividad();
             panelAbierto = true; if (Jugador != null) Jugador.Detener(); modal.SetActive(true);
             tituloPanel.text = titulo; contenido.fontSize = 24; contenido.text = texto; feedback.text = "";
             foreach (Button b in opciones) b.gameObject.SetActive(false);
@@ -363,6 +367,7 @@ namespace GuardianesTolima
         }
         void CerrarPanel()
         {
+            if (GuardianesFlujo.MusicaGuardianes.Instancia != null) GuardianesFlujo.MusicaGuardianes.Instancia.TerminarActividad();
             verFinalPendiente = false; panelAbierto = false; modal.SetActive(false); sitioActivo = -1;
             if (Jugador != null) Jugador.Detener();
         }
